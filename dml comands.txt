@@ -1,0 +1,10 @@
+use dbms;
+insert into department
+values(1,'dbms','deepamam'),(2,'maths','selva ');
+select*from department;
+update student
+set reg_no=192111621
+where reg_no=192111620;
+delete from department
+where department_no=2;
+select reg_no from student;
