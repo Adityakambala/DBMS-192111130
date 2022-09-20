@@ -1,6 +1,6 @@
 use dbms;
 insert into department
-values(1,'dbms','deepamam'),(2,'maths','selva ');
+values(1,'dbms','deepamam'),(2,'foc','suresh ');
 select*from department;
 update student
 set reg_no=192111131
