@@ -1,0 +1,52 @@
+
+mysql> use DBMS;
+Database changed
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| fname   | varchar(30) | YES  |     | NULL    |       |
+| lname   | varchar(30) | YES  |     | NULL    |       |
+| address | varchar(30) | YES  |     | NULL    |       |
+| city    | varchar(30) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> insert into student
+    -> values(1, "ADITYA", "KAMBALA", "mgroad", "chennai"),(2, "ADITYA", "DHONI", "beachroad", "tamil"),(3, "Yuvi","Singh", "rushikonda", "vizag"),(4, "lokesh","kohli","kurnool"," andhra");
+Query OK, 4 rows affected (0.04 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from student;
++------+--------+-------+------------+---------+
+| id   | fname  | lname | address    | city    |
++------+--------+-------+------------+---------+
+|    1 | ADITYA |KAMBALA| mgroad     | Chennai |
+|    2 | ADITYA | DHONI | beachroad  | Tamil   |
+|    3 | Yuvi   | Singh | rushikonda | Vizag   |
+|    4 | ADITYA | DHONI | kurnool    | Andhra |
++------+--------+-------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select*from student
+    -> where lname = "DHONI";
++------+--------+-------+-----------+---------+
+| id   | fname  | lname | address   | city    |
++------+--------+-------+-----------+---------+
+|    2 | ADITYA | DHONI | beachroad | Tamil   |
+|    4 | ADITYA | DHONI | kurnool   | Andhra |
++------+--------+-------+-----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select lname , address, city from student
+    -> where lname like "%li%";
++-------+-----------+---------+
+| lname | address   | city    |
++-------+-----------+---------+
+| DHONI | beachroad | Tamil   |
+| DHONI | kurnool   | Andhra |
++-------+-----------+---------+
+2 rows in set (0.05 sec)
+
+mysql>

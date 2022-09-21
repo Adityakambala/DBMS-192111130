@@ -1,0 +1,12 @@
+use dbms;
+create table persons(
+personid int primary key,
+person_name varchar(30)
+);
+CREATE TABLE Orders (
+OrderID int NOT NULL,
+OrderNumber int NOT NULL, 
+PersonID int, 
+PRIMARY KEY (OrderID),
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID));
+describe orders;
