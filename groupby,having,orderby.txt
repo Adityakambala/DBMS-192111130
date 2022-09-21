@@ -1,0 +1,52 @@
+mysql> create table products (p_id int primary key, p_name VARCHAR(30), p_price INT);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO products
+    -> values (18,'MRF', 256),(17,'KINGFISHER',198),(45,'mcdowels',798),(98,' blackdog', 1788);
+Query OK, 4 rows affected (0.05 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from products;
++------+------------+---------+
+| p_id | p_name     | p_price |
++------+------------+---------+
+|   17 | KINGFISHER |     198 |
+|   18 | MRF        |     256 |
+|   45 | mcdowels   |     798 |
+|   98 |  blackdog  |    1788 |
++------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select *from products
+    -> where p_name = 'kingfisher'
+    -> group by p_price;
++------+------------+---------+
+| p_id | p_name     | p_price |
++------+------------+---------+
+|   17 | KINGFISHER |     198 |
++------+------------+---------+
+1 row in set (0.00 sec)
+
+mysql> select p_name, p_price from products
+    -> where p_id = 18
+    -> order by p_name = 'kingfisher';
++--------+---------+
+| p_name | p_price |
++--------+---------+
+| MRF    |     256 |
++--------+---------+
+1 row in set (0.04 sec)
+
+mysql> select*from products
+    -> having p_price < 1788
+    -> order by p_name;
++------+------------+---------+
+| p_id | p_name     | p_price |
++------+------------+---------+
+|   17 | KINGFISHER |     198 |
+|   45 | mcdowels   |     798 |
+|   18 | MRF        |     256 |
++------+------------+---------+
+3 rows in set (0.04 sec)
+
+mysql>
