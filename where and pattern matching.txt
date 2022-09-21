@@ -1,0 +1,52 @@
+
+mysql> use lokesh;
+Database changed
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| fname   | varchar(30) | YES  |     | NULL    |       |
+| lname   | varchar(30) | YES  |     | NULL    |       |
+| address | varchar(30) | YES  |     | NULL    |       |
+| city    | varchar(30) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+mysql> insert into student
+    -> values(1, "lokesh", "reddy", "mgroad", "chennai"),(2, "lokesh", "kohli", "beachroad", "tamil"),(3, "yuvi","singh", "rushikonda", "vizag"),(4, "lokesh","kohli","kurnool"," andhra");
+Query OK, 4 rows affected (0.04 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from student;
++------+--------+-------+------------+---------+
+| id   | fname  | lname | address    | city    |
++------+--------+-------+------------+---------+
+|    1 | lokesh | reddy | mgroad     | chennai |
+|    2 | lokesh | kohli | beachroad  | tamil   |
+|    3 | yuvi   | singh | rushikonda | vizag   |
+|    4 | lokesh | kohli | kurnool    |  andhra |
++------+--------+-------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select*from student
+    -> where lname = "kohli";
++------+--------+-------+-----------+---------+
+| id   | fname  | lname | address   | city    |
++------+--------+-------+-----------+---------+
+|    2 | lokesh | kohli | beachroad | tamil   |
+|    4 | lokesh | kohli | kurnool   |  andhra |
++------+--------+-------+-----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select lname , address, city from student
+    -> where lname like "%li%";
++-------+-----------+---------+
+| lname | address   | city    |
++-------+-----------+---------+
+| kohli | beachroad | tamil   |
+| kohli | kurnool   |  andhra |
++-------+-----------+---------+
+2 rows in set (0.05 sec)
+
+mysql>

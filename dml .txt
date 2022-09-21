@@ -1,0 +1,22 @@
+mysql> use lokesh;
+Database changed
+mysql> create table employee (empid int, empname VARCHAR(15), empage int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>  insert into employee (empid, empname, empage) values(1, "loki", 18);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee (empid, empname, empage)values(3,"sam", 23);
+Query OK, 1 row affected (0.04 sec)
+mysql> insert into employee(empid, empname, empage) values(2, "virat", 18);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select*from employee;
++-------+---------+--------+
+| empid | empname | empage |
++-------+---------+--------+
+|     1 | loki    |     18 |
+|     3 | sam     |     23 |
+|     2 | virat   |     18 |
++-------+---------+--------+
+3 rows in set (0.00 sec)
