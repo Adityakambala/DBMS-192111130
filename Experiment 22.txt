@@ -1,0 +1,45 @@
+mysql> create table bookpublisher(bookid int(45),bookname char(45),author char(45),customer char(45));
+ERROR 1046 (3D000): No database selected
+mysql> use DBMS;
+Database changed
+mysql> create table bookpublisher(bookid int(45),bookname char(45),author char(45),customer char(45));
+ERROR 1050 (42S01): Table 'bookpublisher' already exists
+mysql> desc bookpublisher;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| bookid   | int(45)  | YES  |     | NULL    |       |
+| bookname | char(45) | YES  |     | NULL    |       |
+| author   | char(45) | YES  |     | NULL    |       |
+| customer | char(45) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql>  create table customer(customerid int(45),customername char(45),customeraddress char(80));
+ERROR 1050 (42S01): Table 'customer' already exists
+mysql> desc customer;
++-----------------+----------+------+-----+---------+-------+
+| Field           | Type     | Null | Key | Default | Extra |
++-----------------+----------+------+-----+---------+-------+
+| customerid      | int(45)  | YES  |     | NULL    |       |
+| customername    | char(45) | YES  |     | NULL    |       |
+| customeraddress | char(80) | YES  |     | NULL    |       |
++-----------------+----------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> insert into customer values('ramayana',333,'kavali'),('DBMS',66,'saveetha nagar');
+ERROR 1366 (HY000): Incorrect integer value: 'ramayana' for column 'customerid' at row 1
+mysql> insert into customer values(333,'ramayana','kavali'),(66,'DBMS','saveetha nagar');
+Query OK, 2 rows affected (0.05 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select  * from customer;
++------------+--------------+-----------------+
+| customerid | customername | customeraddress |
++------------+--------------+-----------------+
+|        333 | ramayana     | kavali          |
+|         66 | DBMS         | saveetha nagar  |
++------------+--------------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into customer values(333,'ramayana','kavali'),(66,'DBMS','saveetha nagar');
