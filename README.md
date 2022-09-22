@@ -2,7 +2,7 @@
 ## EXPERIMENT 1
    DDL COMAND CREATE,ALTER,DROP(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%201%20(1).jpeg,)
 ## EXPERIMENT 2
-   DDL COMANDS- PRIMERY KEY()
+   DDL COMANDS- PRIMERY KEY(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%202(1).txt)
               - FORIGEN KEY()
 ## EXPERIMENT 3
    DML COMAND INSERT,SELECT(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%203.txt)
