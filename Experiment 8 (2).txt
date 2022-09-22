@@ -1,0 +1,32 @@
+
+mysql> select*from products
+    -> where p_price < (select AVG(p_price) from products);
++------+------------+---------+
+| p_id | p_name     | p_price |
++------+------------+---------+
+|   17 | KINGFISHER |     198 |
+|   18 | MRF        |     256 |
++------+------------+---------+
+2 rows in set (0.04 sec)
+
+mysql> select*from products
+    -> where p_id < (select MAX(p_id) from products);
++------+------------+---------+
+| p_id | p_name     | p_price |
++------+------------+---------+
+|   17 | KINGFISHER |     198 |
+|   18 | MRF        |     256 |
+|   45 | mcdowels   |     798 |
++------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from products
+    -> where p_id > (select MIN(p_id) from products);
++------+-----------+---------+
+| p_id | p_name    | p_price |
++------+-----------+---------+
+|   18 | MRF       |     256 |
+|   45 | mcdowels  |     798 |
+|   98 |  blackdog |    1788 |
++------+-----------+---------+
+3 rows in set (0.00 sec)

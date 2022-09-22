@@ -1,0 +1,26 @@
+mysql> create view student_view as select Regno, name and city from student;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select*from student_view;
++-------+---------------+
+| Regno | name and city |
++-------+---------------+
+|   118 |             0 |
+|   227 |             0 |
+|   193 |             0 |
+|   532 |             0 |
+|   984 |             0 |
++-------+---------------+
+5 rows in set, 5 warnings (0.05 sec)
+
+mysql> create index regno on student(regno);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from student;
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table   | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| student |          1 | regno    |            1 | Regno       | A         |           5 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+1 row in set (0.05 sec)

@@ -1,0 +1,53 @@
+Database changed
+mysql> select*from products;
++------+------------+---------+
+| p_id | p_name     | p_price |
++------+------------+---------+
+|   17 | KINGFISHER |     198 |
+|   18 | MRF        |     256 |
+|   45 | mcdowels   |     798 |
+|   98 |  blackdog  |    1788 |
++------+------------+---------+
+4 rows in set (0.01 sec)
+
+mysql> create table orders ( orderid int, product_id int, ordername varchar(30));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>  insert into orders values (19282, 98 ,'poori'),(8832,18,'dosa'),(8753,76,'idily'),(9877,07,'pongal');
+Query OK, 4 rows affected (0.04 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select *from orders;
++---------+------------+-----------+
+| orderid | product_id | ordername |
++---------+------------+-----------+
+|   19282 |         98 | poori     |
+|    8832 |         18 | dosa      |
+|    8753 |         76 | idily     |
+|    9877 |          7 | pongal    |
++---------+------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select p_id,orderid,ordername,p_name
+    -> from products,orders
+    -> where products.p_id=orders.product_id;
++------+---------+-----------+-----------+
+| p_id | orderid | ordername | p_name    |
++------+---------+-----------+-----------+
+|   18 |    8832 | dosa      | MRF       |
+|   98 |   19282 | poori     |  blackdog |
++------+---------+-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select p_id,orderid,ordername,p_name
+    -> from products
+    -> left join orders on products.p_id=orders.product_id;
++------+---------+-----------+------------+
+| p_id | orderid | ordername | p_name     |
++------+---------+-----------+------------+
+|   17 |    NULL | NULL      | KINGFISHER |
+|   18 |    8832 | dosa      | MRF        |
+|   45 |    NULL | NULL      | mcdowels   |
+|   98 |   19282 | poori     |  blackdog  |
++------+---------+-----------+------------+
+4 rows in set (0.00 sec)
