@@ -19,4 +19,4 @@
 ## EXPERIMENT 9
    EQUI JOIN,INNER JOIN,OUTER JOIN()
 ## EXPERIMENT 10
-   VIEW,INDEX,SEQUENCE()
+   VIEW,INDEX,SEQUENCE(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2010.txt)
