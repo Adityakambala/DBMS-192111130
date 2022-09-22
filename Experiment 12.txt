@@ -1,0 +1,26 @@
+update product
+set price=4
+where price=3.50;
+commit;
+rollback;
+select*from product;
+insert into product
+values(6,'bru',5);
+commit;
+update product
+set price=3.50
+where price=4;
+savepoint a;
+insert into product
+values(7,'coffee',7.89);
+
+rollback to a;
+select*from product;
+delete from product
+where price=4; 
+set @@autocommit=0;
+insert into product
+values(3,'capacheino',2.24);
+delete from product
+where id=7;
+rollback;
