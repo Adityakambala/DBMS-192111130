@@ -1,6 +1,9 @@
 # DBMS-192111130
 ## EXPERIMENT 1
-   DDL COMAND CREATE,ALTER,DROP(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%201%20(1).jpeg,https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%202(2).txt,https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%201%20(3).jpeg,)
+   DDL COMAND CREATE,ALTER,DROP(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%201%20(1).jpeg,
+                                https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%202(2).txt,
+                                https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%201%20(3).jpeg,
+                                https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%201%20(3).jpeg)
 ## EXPERIMENT 2
    DDL COMANDS- PRIMERY KEY(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%202(1).txt)
               - FORIGEN KEY(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%202(2).txt)
