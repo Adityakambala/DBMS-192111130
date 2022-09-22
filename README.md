@@ -17,6 +17,6 @@
 ## EXPERIMENT 8
    SUBQUERY AND CORELATED QUERY()
 ## EXPERIMENT 9
-   EQUI JOIN,INNER JOIN,OUTER JOIN()
+   EQUI JOIN,INNER JOIN,OUTER JOIN(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%209%20(2).txt)
 ## EXPERIMENT 10
    VIEW,INDEX,SEQUENCE(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2010.txt)
