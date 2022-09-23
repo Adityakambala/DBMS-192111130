@@ -1,0 +1,39 @@
+create database companey3;
+use companey3;
+create table employee(
+          fname varchar(20),
+          mint char(2),
+          lname varchar(20),
+          ssn varchar(30),
+          bdate date,
+          address varchar(30),
+          sex enum('m','f'),
+          salary int(5),
+          superssn varchar(20),
+          dno int 
+          
+
+
+);
+insert into employee
+values('virat','a','kholi',222343654,20040819,'mgroad','m',3000,234567890,2);
+insert into employee
+values('ms','H','dhoni',234567891,20000920,'pandt coloney','m',4000,225345645745,4),('yuzi','r','chala',22234534646,19980922,'ppn coloney','f',5000,2343546879,5);
+insert into employee
+values('kl','j','rahul',123456789,20001025,'vikram nagar','m',7000,13223454366,5),('mr','t','ipl',123345445654,19870429,'chettipet','f',1000,1243545675,9);
+create table department(
+      dname varchar(30),
+      dno int,
+      mgrssn varchar(20),
+      mgrstartdate date
+
+);
+insert into department
+values('maths',2,234567890,19880522),('physics',4,225345645745,19950101),('chemistry',5,13223454366,1810619),('dbms',9,287476564756,19991230);
+select*from department;
+select sum(salary) from employee;
+select max(salary) from employee;
+select min(salary) from employee;
+select avg(salary) from employee;
+select lname,fname from employee
+where exists(select dno from employee where employee.dno=5);

@@ -1,0 +1,45 @@
+create table stu_info(
+      id int auto_increment primary key,
+      name varchar(30),
+      address varchar(30),
+      subject varchar(30)
+
+);
+insert into stu_info
+values(100,'sai','ap','computers'),(101,'mani','delhi','history'),(105,'lokesh','punjab','ethics'),(106,'aditya','kerela','dbms');
+select*from stu_info;
+create procedure stu_info()
+select*from stu_info;
+call stu_info;
+DELIMITER $$
+
+CREATE PROCEDURE GetCustomers()
+BEGIN
+	SELECT customerName, creditlimit
+	FROM customers;
+    END$$
+    DELIMITER $$
+
+CREATE PROCEDURE GetCustomerLevel(
+    in  p_customerNumber int(11), 
+    out p_customerLevel  varchar(10))
+BEGIN
+    DECLARE creditlim double;
+
+    SELECT creditlimit INTO creditlim
+    FROM customers
+    WHERE customerNumber = p_customerNumber;
+
+    IF creditlim > 50000 THEN
+        SET p_customerLevel = 'PLATINUM';
+    ELSEIF (creditlim <= 50000 AND creditlim >= 10000) THEN
+        SET p_customerLevel = 'GOLD';
+    ELSEIF creditlim < 10000 THEN
+        SET p_customerLevel = 'SILVER';
+    END IF;
+
+END$$
+CALL GETCUSTOMERLEVEL(103,@LEVEL);
+SELECT @LEVEL AS LEVEL;
+CAAL();
+
