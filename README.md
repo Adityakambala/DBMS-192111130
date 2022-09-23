@@ -30,7 +30,7 @@
 ## EXPERIMENT 13
    TCL COMMANDS-SAVEPOINT(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2013.txt)
 ## EXPERIMENT 14
-   DCL COMMANDS-GRANT,REVOKE()
+   DCL COMMANDS-GRANT,REVOKE(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2014)
 ## EXPERIMENT 15
    HIGH LEVEL PROGRAMMING EXTENSIONS-PROCEDURES(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2015.txt)
 ## EXPERIMENT 16
