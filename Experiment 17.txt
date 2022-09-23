@@ -1,0 +1,22 @@
+mysql> delimiter //
+mysql> create procedure dorepeat(p1 int)
+    -> begin
+    -> set @x=0;
+    -> repeat
+    -> set @x = @x + 1;
+    -> until @x > p1 end repeat;
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call dorepeat(1000)//
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select @x//
++------+
+| @x   |
++------+
+| 1001 |
++------+
+1 row in set (0.00 sec)
+
+
