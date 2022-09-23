@@ -1,0 +1,222 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use db;
+Database changed
+mysql> CREATE TABLE EMPLOYEE
+    -> (SSN VARCHAR2 (20) PRIMARY KEY,
+    -> FNAME VARCHAR2 (20),
+    -> LNAME VARCHAR2 (20),
+    -> ADDRESS VARCHAR2 (20),
+    -> SEX CHAR (1),
+    -> SALARY INTEGER,
+    -> SUPERSSN REFERENCES EMPLOYEE (SSN),
+    -> DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR2 (20) PRIMARY KEY,
+FNAME VARCHAR2 (20),
+LNAME VARCHAR2 (20),
+ADDRESS VAR' at line 2
+mysql>
+mysql> CREATE TABLE EMPLOYEE (SSN VARCHAR2 (20) PRIMARY KEY,FNAME VARCHAR2 (20),LNAME VARCHAR2 (20),ADDRESS VARCHAR2 (20), SEX CHAR (1),SALARY INTEGER,
+    -> SUPERSSN REFERENCES EMPLOYEE (SSN),DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR2 (20) PRIMARY KEY,FNAME VARCHAR2 (20),LNAME VARCHAR2 (20),ADDRESS VARCHA' at line 1
+mysql> CREATE TABLE EMPLOYEE (SSN VARCHAR2 (20) PRIMARY KEY,FNAME VARCHAR2 (20),LNAME VARCHAR2 (20),ADDRESS VARCHAR2 (20), SEX CHAR (1),SALARY INTEGER, SUPERSSN REFERENCES EMPLOYEE (SSN),DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR2 (20) PRIMARY KEY,FNAME VARCHAR2 (20),LNAME VARCHAR2 (20),ADDRESS VARCHA' at line 1
+mysql> CREATE TABLE EMPLOYEE1 (SSN VARCHAR2 (20) PRIMARY KEY,FNAME VARCHAR2 (20),LNAME VARCHAR2 (20),ADDRESS VARCHAR2 (20), SEX CHAR (1),SALARY INTEGER, SUPERSSN REFERENCES EMPLOYEE (SSN),DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR2 (20) PRIMARY KEY,FNAME VARCHAR2 (20),LNAME VARCHAR2 (20),ADDRESS VARCHA' at line 1
+mysql> CREATE TABLE EMPLOYEE1 (SSN VARCHAR(20) PRIMARY KEY,FNAME VARCHAR(20),LNAME VARCHAR(20),ADDRESS VARCHAR(20), SEX CHAR(1),SALARY INT, SUPERSSN REFERENCES EMPLOYEE (SSN),DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES EMPLOYEE (SSN),DNO REFERENCES DEPARTMENT (DNO))' at line 1
+mysql> CREATE TABLE EMPLOYEE1 (SSN VARCHAR(20) PRIMARY KEY,FNAME VARCHAR(20),LNAME VARCHAR(20),ADDRESS VARCHAR(20), SEX CHAR(1),SALARY INT, SUPERSSN REFERENCES EMPLOYEE(SSN),DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES EMPLOYEE(SSN),DNO REFERENCES DEPARTMENT (DNO))' at line 1
+mysql> CREATE TABLE EMPLOYEE1 (SSN VARCHAR(20) PRIMARY KEY,FNAME VARCHAR(20),LNAME VARCHAR(20),ADDRESS VARCHAR(20), SEX CHAR(1),SALARY INT,DNO REFERENCES DEPARTMENT (DNO));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES DEPARTMENT (DNO))' at line 1
+mysql> CREATE TABLE EMPLOYEE1 (SSN VARCHAR(20) PRIMARY KEY,FNAME VARCHAR(20),LNAME VARCHAR(20),ADDRESS VARCHAR(20), SEX CHAR(1),SALARY INT);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from employee1;
+Empty set (0.00 sec)
+
+mysql> desc employee1;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| SSN     | varchar(20) | NO   | PRI | NULL    |       |
+| FNAME   | varchar(20) | YES  |     | NULL    |       |
+| LNAME   | varchar(20) | YES  |     | NULL    |       |
+| ADDRESS | varchar(20) | YES  |     | NULL    |       |
+| SEX     | char(1)     | YES  |     | NULL    |       |
+| SALARY  | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql>  CREATE TABLE DEPT(DEPTNO INTEGER, DNAME VARCHAR(10),LOC VARCHAR(4), PRIMARY KEY(DEPTNO));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> ALTER TABLE DEPT RENAME TO DEPARTMENT;
+ERROR 1050 (42S01): Table 'department' already exists
+mysql> ALTER TABLE DEPT RENAME TO DEPARTMENT1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> ALTER TABLE DEPARTMENT ADD(PINCODE NUMBER(6) NOT NULL);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NUMBER(6) NOT NULL)' at line 1
+mysql> ALTER TABLE DEPARTMENT1 ADD(PINCODE NUMBER(6) NOT NULL);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NUMBER(6) NOT NULL)' at line 1
+mysql> ALTER TABLE DEPARTMENT1 ADD(PINCODE NUMBER(6) NOT NULL);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NUMBER(6) NOT NULL)' at line 1
+mysql> ALTER TABLE DEPARTMENT1 ADD(PINCODE int(6) NOT NULL);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc department1;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| DEPTNO  | int(11)     | NO   | PRI | 0       |       |
+| DNAME   | varchar(10) | YES  |     | NULL    |       |
+| LOC     | varchar(4)  | YES  |     | NULL    |       |
+| PINCODE | int(6)      | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE DEPARTMENT DROP column LOC CASCADE
+    -> CONSTRAINTS;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINTS' at line 2
+mysql> ALTER TABLE DEPARTMENT1 DROP column LOC CASCADE CONSTRAINTS;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINTS' at line 1
+mysql> ALTER TABLE DEPARTMENT1 DROP column LOC CASCADE CONSTRAINTS;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINTS' at line 1
+mysql> ALTER TABLE DEPARTMENT1 DROP column LOC CASCADE CON;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CON' at line 1
+mysql> create table student_progress (studentname varchar (30), studentid int, mat int, phy int, che int, grade varchar(5));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>  insert into student_progress
+    ->     -> values ('VIRAT',18,99,100,88,'A'),('YUVI',12,98,89,98,'B'),('DHONI',07,98,87,65,'A'),('LOKESH',01,87,98,87,'A'),('BHUVI',19,37,83,57,'C');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> values ('VIRAT',18,99,100,88,'A'),('YUVI',12,98,89,98,'B'),('DHONI',07,98,87,' at line 2
+mysql>  insert into student_progress values ('VIRAT',18,99,100,88,'A'),('YUVI',12,98,89,98,'B'),('DHONI',07,98,87,65,'A'),('LOKESH',01,87,98,87,'A'),('BHUVI',19,37,83,57,'C');
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT*FROM STUDENT_PROGRESS;
++-------------+-----------+------+------+------+-------+
+| studentname | studentid | mat  | phy  | che  | grade |
++-------------+-----------+------+------+------+-------+
+| VIRAT       |        18 |   99 |  100 |   88 | A     |
+| YUVI        |        12 |   98 |   89 |   98 | B     |
+| DHONI       |         7 |   98 |   87 |   65 | A     |
+| LOKESH      |         1 |   87 |   98 |   87 | A     |
+| BHUVI       |        19 |   37 |   83 |   57 | C     |
++-------------+-----------+------+------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> update student_progress set studentname= 'SACHIN' where studentname ='BHUVI';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from student_progress;
++-------------+-----------+------+------+------+-------+
+| studentname | studentid | mat  | phy  | che  | grade |
++-------------+-----------+------+------+------+-------+
+| VIRAT       |        18 |   99 |  100 |   88 | A     |
+| YUVI        |        12 |   98 |   89 |   98 | B     |
+| DHONI       |         7 |   98 |   87 |   65 | A     |
+| LOKESH      |         1 |   87 |   98 |   87 | A     |
+| SACHIN      |        19 |   37 |   83 |   57 | C     |
++-------------+-----------+------+------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> delete from  student_progress where studentname = 'lokesh';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from student_progress;
++-------------+-----------+------+------+------+-------+
+| studentname | studentid | mat  | phy  | che  | grade |
++-------------+-----------+------+------+------+-------+
+| VIRAT       |        18 |   99 |  100 |   88 | A     |
+| YUVI        |        12 |   98 |   89 |   98 | B     |
+| DHONI       |         7 |   98 |   87 |   65 | A     |
+| SACHIN      |        19 |   37 |   83 |   57 | C     |
++-------------+-----------+------+------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table student_progress add column(totalmarks int );
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from student_progress;
++-------------+-----------+------+------+------+-------+------------+
+| studentname | studentid | mat  | phy  | che  | grade | totalmarks |
++-------------+-----------+------+------+------+-------+------------+
+| VIRAT       |        18 |   99 |  100 |   88 | A     |       NULL |
+| YUVI        |        12 |   98 |   89 |   98 | B     |       NULL |
+| DHONI       |         7 |   98 |   87 |   65 | A     |       NULL |
+| SACHIN      |        19 |   37 |   83 |   57 | C     |       NULL |
++-------------+-----------+------+------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> update student_progress set totalmarks = 287 where studentid = 18;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from student_progress;
++-------------+-----------+------+------+------+-------+------------+
+| studentname | studentid | mat  | phy  | che  | grade | totalmarks |
++-------------+-----------+------+------+------+-------+------------+
+| VIRAT       |        18 |   99 |  100 |   88 | A     |        287 |
+| YUVI        |        12 |   98 |   89 |   98 | B     |       NULL |
+| DHONI       |         7 |   98 |   87 |   65 | A     |       NULL |
+| SACHIN      |        19 |   37 |   83 |   57 | C     |       NULL |
++-------------+-----------+------+------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> update student_progress set totalmarks = 246 where studentid = 12 ;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student_progress set totalmarks = 199 where studentid = 7;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student_progress set totalmarks = 156 where studentid = 19;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from student_progress;
++-------------+-----------+------+------+------+-------+------------+
+| studentname | studentid | mat  | phy  | che  | grade | totalmarks |
++-------------+-----------+------+------+------+-------+------------+
+| VIRAT       |        18 |   99 |  100 |   88 | A     |        287 |
+| YUVI        |        12 |   98 |   89 |   98 | B     |        246 |
+| DHONI       |         7 |   98 |   87 |   65 | A     |        199 |
+| SACHIN      |        19 |   37 |   83 |   57 | C     |        156 |
++-------------+-----------+------+------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> Select studentid,totalmarks,
+    -> CASE
+    -> WHEN totalmarks > 150 THEN 'The mark grade is greater than 150'
+    -> WHEN totalmarks = 150 THEN 'The mark grade is 150'
+    -> ELSE 'The mark grade is above 150'
+    -> END AS TotalMarksgrade
+    -> FROM student_progress;
++-----------+------------+------------------------------------+
+| studentid | totalmarks | TotalMarksgrade                    |
++-----------+------------+------------------------------------+
+|        18 |        287 | The mark grade is greater than 150 |
+|        12 |        246 | The mark grade is greater than 150 |
+|         7 |        199 | The mark grade is greater than 150 |
+|        19 |        156 | The mark grade is greater than 150 |
++-----------+------------+------------------------------------+
+4 rows in set (0.00 sec)
+
+mysql>
