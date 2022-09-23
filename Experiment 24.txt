@@ -1,0 +1,26 @@
+create database car_rental_companey;
+use car_rental_companey;
+create table car(
+   car_id int auto_increment primary key,
+   car_name varchar(30),
+   car_rent varchar(10),
+   car_condition varchar(7)
+
+);
+create table customer(
+       cust_id int auto_increment primary key,
+       cust_name varchar(30),
+       cust_city varchar(30),
+       mobile_no varchar(11)
+);
+insert into car
+values(1,'benz',10000,'good');
+insert into car
+values(2,'shift',4000,'bad'),(3,'bmw',9000,'good'),(4,'aoudi',9500,'bad');
+insert into customer
+values(1,'sai','rjy',9014875944),(2,'mani','kakinada',9222345678),(3,'aditya','chennai',9989526864);
+update car
+set car_condition='good'
+where car_id=3;
+delete from car
+where car_id=4;
