@@ -1,0 +1,56 @@
+mysql> select * from employee;
++------------+------+-----------+-------+------------+----------+------+--------+-----------+------+
+| first_name | mnit | last_name | ssn   | dob        | address  | sex  | salart | superssn  | dno  |
++------------+------+-----------+-------+------------+----------+------+--------+-----------+------+
+| john       | b    | varma     | 26465 | 2002-08-10 | chennai  | m    |  30000 | 654964316 |    5 |
+| raghu      | g    | netha     |  5457 | 2003-09-10 | hyd      | m    |  85462 | 464565355 |    2 |
+| ram        | e    | goud      |  5543 | 2003-11-21 | banglore | m    |   6564 | 355486545 |    3 |
+| ruchi      | a    | netha     | 78946 | 2005-06-25 | mumbai   | f    |  64458 |  64789898 |    4 |
+| varu       | d    | teja      |  5464 | 1999-02-12 | delhi    | f    |  54664 |    646468 |    2 |
++------------+------+-----------+-------+------------+----------+------+--------+-----------+------+
+5 rows in set (0.06 sec)
+
+mysql> select * from dept;
++---------------+---------+--------+--------------+
+| dname         | dnumber | mgrssn | mgrstartdate |
++---------------+---------+--------+--------------+
+| research      |       3 | 465466 | 1999-02-15   |
+| adminstration |       5 | 466846 | 2000-10-25   |
+| headquarter   |       1 |  46436 | 1995-05-20   |
++---------------+---------+--------+--------------+
+3 rows in set (0.00 sec)
+mysql> select first_name,count(*) from employee e,dept d where d.dnumber=e.dno
+    -> and d.dnumber in (select e1.dno from employee e1 group by e1.dno having count(*)>=1)
+    -> order by dno;
++------------+----------+
+| first_name | count(*) |
++------------+----------+
+| john       |        2 |
++------------+----------+
+1 row in set (0.00 sec)
+
+
+mysql> select first_name,last_name,dob
+    -> from employee
+    -> where dob>'2000/01/01';
++------------+-----------+------------+
+| first_name | last_name | dob        |
++------------+-----------+------------+
+| john       | varma     | 2002-08-10 |
+| raghu      | netha     | 2003-09-10 |
+| ram        | goud      | 2003-11-21 |
+| ruchi      | netha     | 2005-06-25 |
++------------+-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select e.first_name,e.last_name,d.dname
+    -> from employee e
+    -> inner join dept d
+    -> on e.dno=d.dnumber;
++------------+-----------+---------------+
+| first_name | last_name | dname         |
++------------+-----------+---------------+
+| john       | varma     | adminstration |
+| ram        | goud      | research      |
++------------+-----------+---------------+
+2 rows in set (0.03 sec)
