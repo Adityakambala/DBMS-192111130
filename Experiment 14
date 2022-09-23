@@ -1,0 +1,93 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use manoj;
+Database changed
+mysql> create user jhon@localhost identified by 'jtp12345';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> grant all on mystudentdb.* to john@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for john@localhost;
++-------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost' IDENTIFIED BY PASSWORD '*99DA742023CF5DFEE6DE3660DD38BA5DE7B1A25A' |
+| GRANT ALL PRIVILEGES ON `mystudentdb`.* TO 'john'@'localhost'                                               |
++-------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke all,grant option from john@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for john@localhost;
++-------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost' IDENTIFIED BY PASSWORD '*99DA742023CF5DFEE6DE3660DD38BA5DE7B1A25A' |
++-------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grant select,update,insert on mystudentdb.* to john@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for john@localhost;
++-------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost' IDENTIFIED BY PASSWORD '*99DA742023CF5DFEE6DE3660DD38BA5DE7B1A25A' |
+| GRANT SELECT, INSERT, UPDATE ON `mystudentdb`.* TO 'john'@'localhost'                                       |
++-------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke update,insert on mystudentdb.* from john@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for john@localhost;
++-------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost' IDENTIFIED BY PASSWORD '*99DA742023CF5DFEE6DE3660DD38BA5DE7B1A25A' |
+| GRANT SELECT ON `mystudentdb`.* TO 'john'@'localhost'                                                       |
++-------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> grant proxy on 'peter@javapoint' to 'localhost' with grant option;
+ERROR 1133 (42000): Can't find any matching row in the user table
+mysql>  grant proxy on 'peter@javapoint' to 'john'@'localhost' with grant option;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'john'@'localhost';
++-------------------------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                                     |
++-------------------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost' IDENTIFIED BY PASSWORD '*99DA742023CF5DFEE6DE3660DD38BA5DE7B1A25A' WITH GRANT OPTION |
+| GRANT SELECT ON `mystudentdb`.* TO 'john'@'localhost'                                                                         |
+| GRANT PROXY ON 'peter@javapoint'@'%' TO 'john'@'localhost' WITH GRANT OPTION                                                  |
++-------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql>  revoke proxy on 'peter@javapoint' from 'john'@'localhost' with grant option;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'grant option' at line 1
+mysql>  revoke proxy on 'peter@javapoint' from 'john'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'john'@'localhost';
++-------------------------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                                     |
++-------------------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost' IDENTIFIED BY PASSWORD '*99DA742023CF5DFEE6DE3660DD38BA5DE7B1A25A' WITH GRANT OPTION |
+| GRANT SELECT ON `mystudentdb`.* TO 'john'@'localhost'                                                                         |
++-------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
