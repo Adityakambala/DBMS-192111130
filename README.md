@@ -40,7 +40,7 @@
 ## EXPERIMENT 18
    TCL COMMANDS-COMMIT,ROLLBACK(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2013.txt)
 ## EXPERIMENT 19
-   DATABASE CONNECTIVITY– Using simple MySQL()
+   DATABASE CONNECTIVITY– Using simple MySQL(https://github.com/Adityakambala/DBMS-192111130/blob/main/Experiment%2019.txt)
 ## EXPERIMENT 20
    CASE SCENARIO BASIC SQL QUERIES IMPLEMENTATION FOR HRM DATABASE()
 ## EXPERIMENT 21
